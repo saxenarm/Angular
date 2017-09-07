@@ -1,0 +1,95 @@
+
+
+<body>
+<div class="container-fluid">
+<div style="text-align:center">
+<div class="row">
+<div  *ngFor = "let w of data.list| paginate: { itemsPerPage: 3, currentPage: p }">
+
+
+        <div class="col-lg-4">
+            <div class="weather-card one">
+                <div class="top">
+                    <div class="wrapper">
+                        <div class="mynav">
+                            <a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
+                            <a href="javascript:;"><span><img  alt="{{w.weather[0].description}}" src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png" ></span></a>
+                        </div>
+                       <h1 class="heading">Humidity :  {{w.main.humidity}}</h1>
+                       <h1 class="heading"> {{w.weather[0].description}}</h1>
+                       <h1 class="heading">{{w.dt_txt}}</h1>
+                        
+                        <p class="temp">
+                            <span class="temp-value">{{w.main.temp_max}}</span>
+                          
+                           <a href="javascript:;"><span class="temp-type">F</span></a>
+                           
+                        </p>
+                        <p class="temp">
+                            <span class="temp-value">{{cityName}}</span>
+                            
+                           
+                        </p>
+                         
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="wrapper">
+                        <ul class="forecast">
+                            <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
+                            <li class="active">
+                                <span class="date">Yesterday</span>
+                                <span class="lnr lnr-sun condition">
+                                    <span class="temp">23<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="date">Tomorrow</span>
+                                <span class="lnr lnr-cloud condition">
+                                    <span class="temp">21<span class="deg">0</span><span class="temp-type">C</span></span>
+                                </span>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <button class="button" (click)="addfavourite(w)">Favourite</button>
+        </div>
+
+        
+ </div>
+
+
+</div>
+</div>
+</div>
+
+</body>
+
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+   
+
+
+<!-- 
+<ul class="weatherCity">
+
+<h3> Time :  {{w.dt_txt}}</h3>
+<h3> Humidity :  {{w.main.humidity}}</h3>
+
+<h3>Temperature: {{w.main.temp_max}}</h3>
+
+<h3> Description:  {{w.weather[0].description}}</h3>
+
+<span><img alt="light rain" src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png" ></span>
+
+
+
+
+</ul>
+ -->
+    
